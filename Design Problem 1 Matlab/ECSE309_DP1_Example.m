@@ -24,9 +24,9 @@ spacing = 0.001;    %spacing in meters between computed points
 % positions, while the last three coordinates are the dipole magnetic
 % moment unit vectors, e.g. the orientation of each magnet (in this case 
 % they are pointing downward, perpedicular to the sensor plane)
-MagPos = [0   0    0   0 0 -1;
-          0   0  0.003 0 0 -1;
-          0   0  0.006 0 0 -1]'; 
+MagPos = [0   0    0   0 0 1;
+          0   0  0.003 0 0 1;
+          0   0  0.006 0 0 1]'; 
       
 %MagPos = [0.01  0.00 0.000 0 1 0]';    %example for a single magnet   
 
@@ -46,7 +46,7 @@ M = 1.25/(4*pi*1e-7)*ones(MM,1); % Magnetization of the magnets [A/m]
 % Otherwise you can specify the wire vertices and use the function to
 % generate a piecewise linear wire
 
-I = 50;    %current in wire (A)
+I = 2.5;    %current in wire (A)
 
 
 %Deleted Linear Wire and Added the Helix Wire Section
@@ -57,7 +57,7 @@ I = 50;    %current in wire (A)
 % Parameters for the helix
 R = 0.008; % Radius of the spiral, just outside the magnets' diameter
 c = 0.0015; % Pitch of the helix, can be the same as magnet thickness for tight spiral
-t = linspace(0, 4*pi*3, 100); % Parameter t, adjust 2*pi*3 for the number of turns
+t = linspace(0, 3*pi*3, 100); % Parameter t, adjust 2*pi*3 for the number of turns
 
 % Helix equations
 x = R * cos(t);
@@ -153,8 +153,10 @@ scatter3(SensorPosMatrix(:,1),SensorPosMatrix(:,2),SensorPosMatrix(:,3),0.5,[0.9
 hold on
 plot3(wirePoints(:,1), wirePoints(:,2), wirePoints(:,3),'-k','LineWidth',1)
 
-vecType = 'field';  %options: force, torque, field, moment
+%%
+vecType = 'force';  %options: force, torque, field, moment
 
+%%
 scaling = 'log';
 xref = wirePoints(:,1);
 yref = wirePoints(:,2);
