@@ -24,16 +24,16 @@ spacing = 0.001;    %spacing in meters between computed points
 % positions, while the last three coordinates are the dipole magnetic
 % moment unit vectors, e.g. the orientation of each magnet (in this case 
 % they are pointing downward, perpedicular to the sensor plane)
-MagPos = [0.01  0 -0.000 1 0 0;
-          0 0.01 0.000 0 -1 0;
-          0  0 0.01 0 0 1]';      
+MagPos = [0   0    0   0 0 -1;
+          0   0  0.003 0 0 -1;
+          0   0  0.006 0 0 -1]'; 
       
 %MagPos = [0.01  0.00 0.000 0 1 0]';    %example for a single magnet   
 
 MM = size(MagPos,2); 
-D = 0.010*ones(MM,1); % Diameter of the magnets
-L = 0.006*ones(MM,1); % Length of the magnets
-M = 10/(4*pi*1e-7)*ones(MM,1); % Magnetization of the magnets [A/m]
+D = 0.012*ones(MM,1); % Diameter of the magnets
+L = 0.003*ones(MM,1); % Length of the magnets
+M = 1.25/(4*pi*1e-7)*ones(MM,1); % Magnetization of the magnets [A/m]
 
 %% Generate Current Carrying Wire
 % a wire in 3D space may be defined using a function over the computation
