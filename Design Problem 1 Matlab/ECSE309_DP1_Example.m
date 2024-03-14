@@ -48,6 +48,9 @@ M = 1.25/(4*pi*1e-7)*ones(MM,1); % Magnetization of the magnets [A/m]
 
 I = 50;    %current in wire (A)
 
+
+%Deleted Linear Wire and Added the Helix Wire Section
+
 %%
 %Testing out helix wire
 
