@@ -48,40 +48,22 @@ M = 1.25/(4*pi*1e-7)*ones(MM,1); % Magnetization of the magnets [A/m]
 
 I = 50;    %current in wire (A)
 
-%example for a linear wire:
-a = 1; %x-slope
-ao = 0; %x-offset
-b = 1; %y-slope
-bo = 0; %y-offset
-c = 0; %z-slope
-co = 0; %z-offset
-wirePoints = [a.*[WorkspaceDim(1):spacing:WorkspaceDim(2)]+ao; ...
-                b.*[WorkspaceDim(3):spacing:WorkspaceDim(4)]+bo; ...
-                    c.*[WorkspaceDim(5):spacing:WorkspaceDim(6)]+co]';
+%%
+%Testing out helix wire
 
-% examples of piecewise wires:
-% wirePoints = [0.0070 0.0070 0.0150;
-%               0.0070 0.0070 0.0130;
-%               0.0070 0.0070 0.0110;
-%               0.0070 0.0070 0.0090;
-%               0.0070 0.0070 0.0070;
-%               0.0070 0.0070 0.0050;
-%               0.0070 0.0070 0.0030;
-%               0.0070 0.0070 0.0010;
-%               0.0070 0.0050 -0.0010;
-%               0.0070 0.0030 -0.0010;
-%               0.0070 0.0010 -0.0010;
-%               0.0070 -0.0010 -0.0010;
-%               0.0070 -0.0030 -0.0010;
-%               ];
+% Parameters for the helix
+R = 0.008; % Radius of the spiral, just outside the magnets' diameter
+c = 0.0015; % Pitch of the helix, can be the same as magnet thickness for tight spiral
+t = linspace(0, 4*pi*3, 100); % Parameter t, adjust 2*pi*3 for the number of turns
 
-V = [     -0.0145 -0.0145 -0.0145;
-          0 0 0
-          0.010 0.0145 0.010
-          ];
+% Helix equations
+x = R * cos(t);
+y = R * sin(t);
+z = c * t / (2*pi); % Normalize by 2*pi to make 'c' represent the pitch directly
 
-wirePoints = computeWire(V,spacing);    %example of piecewise linear wire
-
+% Generating the spiral wire points
+wirePoints = [x; y; z]';
+%%
 
 % now at each point on the wire, generate a vector of current components
 currVec = 0.*wirePoints;
