@@ -224,4 +224,4 @@ axis off
 %%
 %Calculating the torque Moment
 zTorque = abs(tTotz(end));
-disp(zTorque);
+disp(['The max torque is: ', num2str(zTorque)]);
