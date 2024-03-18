@@ -26,7 +26,8 @@ spacing = 0.001;    %spacing in meters between computed points
 % they are pointing downward, perpedicular to the sensor plane)
 MagPos = [0   0    0   0 0 1;
           0   0  0.003 0 0 1;
-          0   0  0.006 0 0 1]'; 
+          0   0  0.006 0 0 1;
+          0   0  0.009 0 0 1]'; 
       
 %MagPos = [0.01  0.00 0.000 0 1 0]';    %example for a single magnet   
 
@@ -57,7 +58,7 @@ I = 2.5;    %current in wire (A)
 % Parameters for the helix
 R = 0.008; % Radius of the spiral, just outside the magnets' diameter
 c = 0.0015; % Pitch of the helix, can be the same as magnet thickness for tight spiral
-t = linspace(0, 3*pi*3, 100); % Parameter t, adjust 2*pi*3 for the number of turns
+t = linspace(0, 3*pi*4, 100); % Parameter t, adjust 2*pi*3 for the number of turns
 
 % Helix equations
 x = R * cos(t);
@@ -224,4 +225,4 @@ axis off
 %%
 %Calculating the torque Moment
 zTorque = abs(tTotz(end));
-disp(['The max torque is: ', num2str(zTorque)]);
+disp(['The max torque is: ', num2str(zTorque), ' (N * mm)']);
