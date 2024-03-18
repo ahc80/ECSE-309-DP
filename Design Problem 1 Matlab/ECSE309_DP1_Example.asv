@@ -154,7 +154,7 @@ hold on
 plot3(wirePoints(:,1), wirePoints(:,2), wirePoints(:,3),'-k','LineWidth',1)
 
 %%
-vecType = 'torque';  %options: force, torque, field, moment
+vecType = 'moment';  %options: force, torque, field, moment
 
 %%
 scaling = 'log';
@@ -207,11 +207,11 @@ showFrame([0 0 0],[1 0 0]/500,[0 1 0]/500,[0 0 1]/500,...
 
 colormap turbo
 %For Force:xref= 0.005
-%For Torque:xref= 100
+%For Torque:xref=
 %For Field:xref= 0.75
 %For Moment:xref= Is Not required
 quiverC3D(xref,yref,zref,xcomp,ycomp,zcomp,...
-    100,5000,'scaleMode',scaling,'LineWidth', 3)
+    0.0001,5000,'scaleMode',scaling,'LineWidth', 3)
 %quiver3(xref,yref,zref,xcomp,ycomp,zcomp)
 axis equal
 %clim("auto");
