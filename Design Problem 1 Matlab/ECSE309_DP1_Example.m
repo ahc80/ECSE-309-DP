@@ -57,7 +57,7 @@ I = 2.5;    %current in wire (A)
 
 % Parameters for the helix
 R = 0.008; % Radius of the spiral, just outside the magnets' diameter
-c = 0.0015; % Pitch of the helix, can be the same as magnet thickness for tight spiral
+c = 0.0025; % Pitch of the helix, can be the same as magnet thickness for tight spiral
 t = linspace(0, 3*pi*4, 100); % Parameter t, adjust 2*pi*3 for the number of turns
 
 % Helix equations
@@ -155,7 +155,7 @@ hold on
 plot3(wirePoints(:,1), wirePoints(:,2), wirePoints(:,3),'-k','LineWidth',1)
 
 %%
-vecType = 'torque';  %options: force, torque, field, moment
+vecType = 'force';  %options: force, torque, field, moment
 
 %%
 scaling = 'log';
@@ -225,4 +225,4 @@ axis off
 %%
 %Calculating the torque Moment
 zTorque = abs(tTotz(end));
-disp(['The max torque is: ', num2str(zTorque), ' (N * mm)']);
+disp(['The max torque is: ', num2str(zTorque), ' (N * m)']);
