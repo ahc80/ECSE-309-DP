@@ -209,10 +209,10 @@ showFrame([0 0 0],[1 0 0]/500,[0 1 0]/500,[0 0 1]/500,...
 colormap turbo
 %For Force:xref= 0.005
 %For Torque:xref= 100
-%For Field:xref= 0.75
+%For Field:xref= 0.1
 %For Moment:xref= Is Not required
 quiverC3D(xref,yref,zref,xcomp,ycomp,zcomp,...
-    100,5000,'scaleMode',scaling,'LineWidth', 3)
+    0.005,5000,'scaleMode',scaling,'LineWidth', 3)
 %quiver3(xref,yref,zref,xcomp,ycomp,zcomp)
 axis equal
 %clim("auto");
